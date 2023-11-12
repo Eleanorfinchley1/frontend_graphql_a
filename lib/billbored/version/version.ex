@@ -1,7 +1,7 @@
 defmodule BillBored.Version do
   @moduledoc false
 
-  {sha, 128} = System.cmd("git", ["rev-parse", "HEAD"])
+  {sha, 0} = System.cmd("git", ["rev-parse", "HEAD"])
   sha = String.trim(sha)
 
   @spec commit_sha :: String.t()
