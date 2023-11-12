@@ -61,7 +61,7 @@ defmodule BillBored.MixProject do
       {:geo_postgis, "~> 3.0"},
       {:google_maps, "~> 0.11.0"},
       {:benchee, "~> 1.0", only: :bench},
-      {:bcrypt_elixir, "~> 0.12"},
+      {:bcrypt_elixir, "~> 3.0"},
       {:phone_verification, "~> 0.4.0"},
       {:scrivener_ecto, "~> 2.0"},
       {:arc, "~> 0.11"},
