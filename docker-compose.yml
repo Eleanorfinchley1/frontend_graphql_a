@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  elixir-app:
+    build:
+      context: Dockerfile.dev
+    env_file:
+      - ./.env.dev
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+      - clickhouse-server
+      - redis
+    volumes:
+      - .:/app
+  db:
+    image: postgis/postgis:11-3.3-alpine
+    env_file:
+      - .env.dev
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  clickhouse-server:
+    image: yandex/clickhouse-server
+    ports:
+      - 8123:8123
+      - 9000:9000
+    restart: always
+    volumes:
+      - chdata:/var/lib/clickhouse
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+volumes:
+  pgdata:
+  chdata:

@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Admin</title>
+    <!-- Uncomment to just use the bare bones torch styles rather than the theme -->
+    <!--<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/torch/base.css") %>">-->
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/torch/theme.css") %>">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/torch/override.css") %>">
+  </head>
+
+  <body class="<%= BillBored.Torch.PageView.body_classes(@conn) %>">
+    <header>
+      <section id="torch-account-info">
+        <div class="torch-container">
+          <a href="/">user@example.com</a>
+          <a href="/">Logout</a>
+        </div>
+      </section>
+
+      <section id="torch-nav">
+        <div class="torch-container">
+          <div class="torch-logo">
+            <a href="/">
+              <h3>Torch</h3>
+            </a>
+          </div>
+          <nav class="torch-nav">
+            <ul>
+              <li>
+                <a href="<%= Routes.torch_post_path(@conn, :index) %>">Posts</a>
+                <ul class="torch-dropdown">
+                  <li><a href="<%= Routes.torch_post_path(@conn, :index_for_review, %{"sort_direction" => "desc", "sort_field" => "reports_count"}) %>">For review</a></li>
+                  <li><a href="<%= Routes.torch_post_report_reason_path(@conn, :index) %>">Post report reasons</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="<%= Routes.torch_user_path(@conn, :index) %>">Users</a>
+              </li>
+              <li>
+                <a href="<%= Routes.torch_covid_info_path(@conn, :show) %>">COVID info</a>
+              </li>
+              <li>
+                <a href="<%= Routes.torch_area_notification_path(@conn, :index) %>">Area notifications</a>
+              </li>
+              <li>
+                <a href="<%= Routes.torch_interest_category_path(@conn, :index) %>">Interest categories</a>
+              </li>
+              <li>
+                <a href="<%= Routes.torch_business_account_path(@conn, :index) %>">Business accounts</a>
+              </li>
+              <li>
+                <a href="<%= Routes.torch_timetable_entry_path(@conn, :index) %>">Notifications timetable</a>
+              </li>
+              <li>
+                <a href="<%= Routes.torch_user_recommendation_path(@conn, :index) %>">User recommendations</a>
+              </li>
+              <li>
+                <a href="<%= Routes.torch_location_reward_path(@conn, :index) %>">Location rewards</a>
+              </li>
+            </ul>
+          </nav>
+          </nav>
+        </div>
+      </section>
+    </header>
+
+    <%= Torch.FlashView.render("_flash_messages.html", assigns) %>
+    <%= render @view_module, @view_template, assigns %>
+    <script src="<%= Routes.static_path(@conn, "/torch/torch.js") %>"></script>
+  </body>
+</html>

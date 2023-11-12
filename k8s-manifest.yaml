@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: billbored-test-dep
+  namespace: default
+spec:
+  serviceAccountName: secret-ksa
+  containers:
+    - name: billbored-server
+      image: gcr.io/billbored-terraform-8fbee0f0/billbored-server:0.1
+      ports:
+        - containerPort: 3000
+      env:
+        - name: APNS_AUTH_KEY
+          value: "${APNS_AUTH_KEY}"
+        - name: APNS_KEY_ID
+          value: "${APNS_KEY_ID}"
+        - name: APPLE_TEAM_ID
+          value: "${APPLE_TEAM_ID}"
+        - name: DATABASE_HOST
+          value: "${DATABASE_HOST}"
+        - name: DATABASE_NAME
+          value: "${DATABASE_NAME}"
+        - name: DATABASE_PASSWORD
+          value: "${DATABASE_PASSWORD}"
+        - name: DATABASE_PORT
+          value: "${DATABASE_PORT}"
+        - name: DATABASE_USERNAME
+          value: "${DATABASE_USERNAME}"
+        - name: METRICS_PASSWORD
+          value: "${METRICS_PASSWORD}"
+        - name: SECRET_KEY_BASE
+          value: "${SECRET_KEY_BASE}"
+        - name: SESSION_ENCRYPTION_SALT
+          value: "${SESSION_ENCRYPTION_SALT}"
+        - name: SESSION_SIGNING_SALT
+          value: "${SESSION_SIGNING_SALT}"
+        - name: TORCH_PASSWORD
+          value: "${TORCH_PASSWORD}"
+        - name: REDIS_HOST
+          value: "${REDIS_HOST}"

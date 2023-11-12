@@ -1,0 +1,7 @@
+<p>showing livestream "<%= @livestream.title %>"</p>
+
+<pre class="pre pa2 bg-light-gray"><%=
+  "livestream.json"
+  |> Web.LivestreamView.render(livestream: @livestream)
+  |> Jason.encode!(pretty: true)
+%></pre>

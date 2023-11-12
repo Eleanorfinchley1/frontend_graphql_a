@@ -1,0 +1,192 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%= link "Back", to: Routes.torch_location_reward_path(@conn, :index), class: "torch-button" %>
+  </div>
+</section>
+
+<section id="torch-header-and-content">
+  <div class="torch-container">
+    <div class="header">
+      <h3>Location reward</h3>
+    </div>
+    <ul>
+
+        <li>
+          <div class="torch-show-label">Location</div>
+          <div class="torch-show-data"><%= location(@location_reward.location) %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Radius</div>
+          <div class="torch-show-data"><%= float(@location_reward.radius) %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Radius</div>
+          <div class="torch-show-data"><%= float(@location_reward.stream_points / 10) %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Started at</div>
+          <div class="torch-show-data"><%= datetime(@location_reward.started_at) || "N/A" %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Ended at</div>
+          <div class="torch-show-data"><%= datetime(@location_reward.ended_at) || "N/A" %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Created at</div>
+          <div class="torch-show-data"><%= datetime(@location_reward.inserted_at) || "N/A" %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Updated at</div>
+          <div class="torch-show-data"><%= datetime(@location_reward.updated_at) || "N/A" %></div>
+        </li>
+
+        <section id="torch-toolbar">
+            <div class="torch-container">
+                <%= link "Notify this reward to", to: "", method: :post, class: "torch-button" %>
+            </div>
+        </section>
+
+        <section id="torch-index-content">
+            <div class="torch-container">
+                <section id="torch-filters">
+                <h3>Find Users To Be Notified</h3>
+                <%= form_tag @conn.request_path, method: :get, id: "torch-filters-form" do %>
+
+                    <input type="hidden" name="sort_direction" value="<%= @sort_direction %>" />
+                    <input type="hidden" name="sort_field" value="<%= @sort_field %>" />
+
+                    <div class="field">
+                        <label>ID</label>
+                        <%= number_filter_select(:user, :id, @conn.params) %>
+                        <%= filter_number_input(:user, :id, @conn.params) %>
+                    </div>
+
+                    <div class="field">
+                        <label>Username</label>
+                        <%= filter_select(:user, :username, @conn.params) %>
+                        <%= filter_string_input(:user, :username, @conn.params) %>
+                    </div>
+
+                    <div class="field">
+                        <label>First name</label>
+                        <%= filter_select(:user, :first_name, @conn.params) %>
+                        <%= filter_string_input(:user, :first_name, @conn.params) %>
+                    </div>
+
+                    <div class="field">
+                        <label>Last name</label>
+                        <%= filter_select(:user, :last_name, @conn.params) %>
+                        <%= filter_string_input(:user, :last_name, @conn.params) %>
+                    </div>
+
+                    <div class="field">
+                        <label>Blocked to ID</label>
+                        <select class="filter-type" id="filters_" name="filters[]"><option value="user[blocked_to_id_equals]" selected="">Equals</option></select>
+                        <%= filter_number_input(:user, :blocked_to_id, @conn.params) %>
+                    </div>
+
+                    <div class="field">
+                        <label>Blocked from ID</label>
+                        <select class="filter-type" id="filters_" name="filters[]"><option value="user[blocked_from_id_equals]" selected="">Equals</option></select>
+                        <%= filter_number_input(:user, :blocked_from_id, @conn.params) %>
+                    </div>
+
+                    <div class="field">
+                        <label>Blocks count</label>
+                        <%= number_filter_select(:user, :blocks_count, @conn.params) %>
+                        <%= filter_number_input(:user, :blocks_count, @conn.params) %>
+                    </div>
+
+                    <div class="field">
+                        <label>Access</label>
+                        <select class="filter-type" id="filters_" name="filters[]"><option value="user[access_equals]" selected="">Equals</option></select>
+                        <%= filter_assoc_select(:user, :access, [{"granted", "granted"}, {"restricted", "restricted"}], @conn.params) %>
+                    </div>
+
+                    <div class="field">
+                        <label>Event provider</label>
+                        <select class="filter-type" id="filters_" name="filters[]"><option value="user[event_provider_equals]" selected="">Equals</option></select>
+                        <%= filter_assoc_select(:user, :event_provider, [{"none", "none"}, {"eventful", "eventful"}, {"meetup", "meetup"}, {"allevents", "allevents"}, {"eventbrite", "eventbrite"}], @conn.params) %>
+                    </div>
+
+                    <button type="submit" class="torch-button">Search</button>
+                    <%= link "Clear Filters", to: Routes.torch_location_reward_path(@conn, :pre_notify, @location_reward.id) %>
+                <% end %>
+
+                </section>
+
+                <section id="torch-table">
+                <%= if length(@users) > 0 do %>
+                <%= render Torch.PaginationView, "_pagination.html", assigns %>
+                <table>
+                    <thead>
+                    <tr>
+
+                        <th><%= table_link(@conn, "ID", :id) %></th>
+
+                        <th><%= table_link(@conn, "Username", :username) %></th>
+
+                        <th><%= table_link(@conn, "First name", :first_name) %></th>
+
+                        <th><%= table_link(@conn, "Last name", :last_name) %></th>
+
+                        <th><%= table_link(@conn, "Date joined", :date_joined) %></th>
+
+                        <%= if @custom_filters[:access_equals] do %>
+                            <th>Access</th>
+                        <% end %>
+
+                        <%= if @has_blocks do %>
+                        <th><%= table_link(@conn, "Blocks count", :blocks_count) %></th>
+                        <% end %>
+
+                        <th><span>Actions</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%= for user <- @users do %>
+                        <tr>
+                            <td><%= link user.id, to: Routes.torch_user_path(@conn, :show, user) %></td>
+
+                            <td><%= user.username %></td>
+
+                            <td><%= user.first_name %></td>
+
+                            <td><%= user.last_name %></td>
+
+                            <td><%= user.date_joined %></td>
+
+                            <%= if @custom_filters[:access_equals] do %>
+                            <td><%= user.flags["access"] %></td>
+                            <% end %>
+
+                            <%= if @has_blocks do %>
+                            <td><%= user.blocks_count %></td>
+                            <% end %>
+
+                            <td class="torch-actions">
+                                <%= if is_nil(user.location_reward_notification_id) do %>
+                                    <span><%= link "Notify to this user", to: Routes.torch_location_reward_path(@conn, :notify, @location_reward.id, %{"filters[]" => "user[id_equals]", "user[id_equals]" => user.id}), method: :post %></span>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+                <%= render Torch.PaginationView, "_pagination.html", assigns %>
+                <% else %>
+                <p class="torch-no-data">No users match your search to be notified.</p>
+                <% end %>
+                </section>
+            </div>
+            </section>
+
+    </ul>
+  </div>
+</section>

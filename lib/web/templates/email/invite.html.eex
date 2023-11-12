@@ -1,0 +1,7 @@
+<div>
+    <h1>Dropchats</h1>
+    <p>Hello,</p>
+    <p> <%= @data.username %> has invited you to join Dropchats via your email address (<%= @data.email %>) </p>
+    <p>Check it out! It is really cool <a href="/">Dropchats</a></p>
+    <p> Yours truly, the Dropchats Team</p>
+</div>

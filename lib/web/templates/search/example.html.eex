@@ -1,0 +1,4 @@
+<div id="search" class="measure center">
+</div>
+
+<script>window.userToken = "<%= @token %>"</script>

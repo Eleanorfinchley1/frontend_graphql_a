@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agora demo streaming</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+<script src="https://download.agora.io/sdk/release/AgoraRTC_N-4.4.0.js"></script>
+<script>
+  var elements = {
+    inputChannelName: null,
+    inputRole: null,
+    inputToken: null,
+    buttonJoin: null,
+    buttonLeave: null
+  };
+
+  var videoCount = 0;
+  var users = {};
+
+  var options = {
+    appId: "831ca0419e4c414e900c6f9571a1675d"
+  };
+
+  var client = null;
+  var localAudioTrack = null;
+
+  async function init() {
+    elements.inputChannelName = document.getElementById("input-channel-name");
+    elements.inputRole = document.getElementById("input-role");
+    elements.inputToken = document.getElementById("input-token");
+
+    elements.buttonLeave = document.getElementById("button-leave");
+    elements.buttonLeave.addEventListener('click', async function(e) {
+      e.preventDefault();
+      await leave();
+      return false;
+    });
+
+    elements.buttonJoin = document.getElementById("button-join");
+    elements.buttonJoin.addEventListener('click', async function(e) {
+      e.preventDefault();
+
+      options.channel = elements.inputChannelName.value;
+      options.role = elements.inputRole.value;
+      options.token = elements.inputToken.value;
+      await join(options);
+
+      elements.buttonLeave.disabled = false;
+
+      return false;
+    });
+  }
+
+  async function join(options) {
+    client = AgoraRTC.createClient({ mode: "live", codec: "vp8" });
+
+    client.on("user-published", async (user, mediaType) => {
+      console.log(["user-published", user, mediaType]);
+
+      await client.subscribe(user, mediaType);
+      console.log("subscribe success: " + mediaType);
+
+      if (mediaType === "audio") {
+        const remoteAudioTrack = user.audioTrack;
+        remoteAudioTrack.play();
+      }
+
+      console.log(user.uid);
+      console.log(users);
+      console.log(users[user.uid]);
+      console.log(user.videoTrack);
+
+      if (mediaType === "video" && undefined === users[user.uid]) {
+        const remoteVideoTrack = user.videoTrack;
+        remoteVideoTrack.play('videos');
+        users[user.uid] = videoCount;
+        videoCount += 1;
+      }
+
+    });
+
+    client.setClientRole(options.role);
+    console.log(options);
+    const uid = await client.join(options.appId, options.channel, options.token, null);
+
+    if (options.role == "host") {
+      localTracks = await AgoraRTC.createMicrophoneAndCameraTracks();
+      await client.publish(localTracks);
+    }
+  }
+
+  async function leave() {
+    if (localAudioTrack) {
+      localAudioTrack.close();
+    }
+
+    await client.leave();
+
+    elements.buttonLeave.disabled = true;
+  }
+
+  document.addEventListener('DOMContentLoaded', async function(e) {
+    await init();
+  });
+</script>
+</head>
+<body>
+  <div class="section">
+    <form class="box">
+      <div class="field">
+        <label class="label" for="input-channel-name">Channel</label>
+        <input type="text" id="input-channel-name" class="input" value="billbored-demo-channel" />
+      </div>
+
+      <div class="field">
+        <label class="label" for="input-role">Role</label>
+        <select id="input-role" class="input">
+          <option value="host" selected="selected">host</option>
+          <option value="audience">audience</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="label" for="input-token">Token</label>
+        <textarea id="input-token" class="textarea" rows="3" placeholder="Paste token here"></textarea>
+      </div>
+
+      <button type="submit" id="button-join" class="button is-primary">Join</button>
+      <button id="button-leave" disabled="disabled" class="button">Leave</button>
+    </form>
+
+    <div id="videos" style="width: 320px; height: 240px"></div>
+  </div>
+</body>
+</html>

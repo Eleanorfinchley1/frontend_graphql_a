@@ -1,0 +1,502 @@
+[
+    {
+      "id": 1,
+      "hashtag": "Travel",
+      "icon": "✈️"
+    },
+    {
+      "id": 2,
+      "hashtag": "Food",
+      "icon": "🍔"
+    },
+    {
+      "id": 3,
+      "hashtag": "Fitness",
+      "icon": "🏋️‍♂️"
+    },
+    {
+      "id": 4,
+      "hashtag": "Music",
+      "icon": "🎵"
+    },
+    {
+      "id": 5,
+      "hashtag": "Movies",
+      "icon": "🎥"
+    },
+    {
+      "id": 6,
+      "hashtag": "Photography",
+      "icon": "📷"
+    },
+    {
+      "id": 7,
+      "hashtag": "Fashion",
+      "icon": "👗"
+    },
+    {
+      "id": 8,
+      "hashtag": "Sports",
+      "icon": "🏀"
+    },
+    {
+      "id": 9,
+      "hashtag": "Art",
+      "icon": "🎨"
+    },
+    {
+      "id": 10,
+      "hashtag": "Reading",
+      "icon": "📚"
+    },
+    {
+      "id": 11,
+      "hashtag": "Technology",
+      "icon": "📱"
+    },
+    {
+      "id": 12,
+      "hashtag": "Gaming",
+      "icon": "🎮"
+    },
+    {
+      "id": 13,
+      "hashtag": "Nature",
+      "icon": "🌿"
+    },
+    {
+      "id": 14,
+      "hashtag": "Cars",
+      "icon": "🚗"
+    },
+    {
+      "id": 15,
+      "hashtag": "DIY (Do It Yourself)",
+      "icon": "🛠️"
+    },
+    {
+      "id": 16,
+      "hashtag": "Animals",
+      "icon": "🐾"
+    },
+    {
+      "id": 17,
+      "hashtag": "Cooking",
+      "icon": "🍳"
+    },
+    {
+      "id": 18,
+      "hashtag": "Dancing",
+      "icon": "💃"
+    },
+    {
+      "id": 19,
+      "hashtag": "Health",
+      "icon": "🏥"
+    },
+    {
+      "id": 20,
+      "hashtag": "Meditation",
+      "icon": "🧘‍♀️"
+    },
+    {
+      "id": 21,
+      "hashtag": "Writing",
+      "icon": "📝"
+    },
+    {
+      "id": 22,
+      "hashtag": "Astronomy",
+      "icon": "🌌"
+    },
+    {
+      "id": 23,
+      "hashtag": "History",
+      "icon": "📜"
+    },
+    {
+      "id": 24,
+      "hashtag": "Science",
+      "icon": "🔬"
+    },
+    {
+      "id": 25,
+      "hashtag": "Home decor",
+      "icon": "🏡"
+    },
+    {
+      "id": 26,
+      "hashtag": "Gardening",
+      "icon": "🌻"
+    },
+    {
+      "id": 27,
+      "hashtag": "Yoga",
+      "icon": "🧘"
+    },
+    {
+      "id": 28,
+      "hashtag": "Spirituality",
+      "icon": "☯️"
+    },
+    {
+      "id": 29,
+      "hashtag": "Pets",
+      "icon": "🐶"
+    },
+    {
+      "id": 30,
+      "hashtag": "Shopping",
+      "icon": "🛍️"
+    },
+    {
+      "id": 31,
+      "hashtag": "Coding",
+      "icon": "💻"
+    },
+    {
+      "id": 32,
+      "hashtag": "Education",
+      "icon": "🎓"
+    },
+    {
+      "id": 33,
+      "hashtag": "Parenting",
+      "icon": "👪"
+    },
+    {
+      "id": 34,
+      "hashtag": "Traveling with pets",
+      "icon": "🐾🧳"
+    },
+    {
+      "id": 35,
+      "hashtag": "Wine tasting",
+      "icon": "🍷"
+    },
+    {
+      "id": 36,
+      "hashtag": "Coffee",
+      "icon": "☕"
+    },
+    {
+      "id": 37,
+      "hashtag": "Hiking",
+      "icon": "🥾"
+    },
+    {
+      "id": 38,
+      "hashtag": "Cycling",
+      "icon": "🚴"
+    },
+    {
+      "id": 39,
+      "hashtag": "Adventure",
+      "icon": "🌄"
+    },
+    {
+      "id": 40,
+      "hashtag": "Dancing",
+      "icon": "💃"
+    },
+    {
+      "id": 41,
+      "hashtag": "Board games",
+      "icon": "🎲"
+    },
+    {
+      "id": 42,
+      "hashtag": "Social media",
+      "icon": "📱💬"
+    },
+    {
+      "id": 43,
+      "hashtag": "Surfing",
+      "icon": "🏄"
+    },
+    {
+      "id": 44,
+      "hashtag": "Skiing",
+      "icon": "⛷️"
+    },
+    {
+      "id": 45,
+      "hashtag": "Snowboarding",
+      "icon": "🏂"
+    },
+    {
+      "id": 46,
+      "hashtag": "Swimming",
+      "icon": "🏊‍♂️"
+    },
+    {
+      "id": 47,
+      "hashtag": "Running",
+      "icon": "🏃‍♂️"
+    },
+    {
+      "id": 48,
+      "hashtag": "Paintball",
+      "icon": "🎯"
+    },
+    {
+      "id": 49,
+      "hashtag": "Paragliding",
+      "icon": "🪂"
+    },
+    {
+      "id": 50,
+      "hashtag": "Baking",
+      "icon": "🍰"
+    },
+    {
+      "id": 51,
+      "hashtag": "Volunteering",
+      "icon": "🤝"
+    },
+    {
+      "id": 52,
+      "hashtag": "Board games",
+      "icon": "🎲"
+    },
+    {
+      "id": 53,
+      "hashtag": "Pottery",
+      "icon": "🏺"
+    },
+    {
+      "id": 54,
+      "hashtag": "Fishing",
+      "icon": "🎣"
+    },
+    {
+      "id": 55,
+      "hashtag": "Chess",
+      "icon": "♟️"
+    },
+    {
+      "id": 56,
+      "hashtag": "Language learning",
+      "icon": "🗣️"
+    },
+    {
+      "id": 57,
+      "hashtag": "Surfing",
+      "icon": "🏄‍♀️"
+    },
+    {
+      "id": 58,
+      "hashtag": "Motorcycles",
+      "icon": "🏍️"
+    },
+    {
+      "id": 59,
+      "hashtag": "Wildlife",
+      "icon": "🦁"
+    },
+    {
+      "id": 60,
+      "hashtag": "Virtual reality",
+      "icon": "🕶️"
+    },
+    {
+      "id": 61,
+      "hashtag": "Robotics",
+      "icon": "🤖"
+    },
+    {
+      "id": 62,
+      "hashtag": "Drones",
+      "icon": "🚁"
+    },
+    {
+      "id": 63,
+      "hashtag": "Martial arts",
+      "icon": "🥋"
+    },
+    {
+      "id": 64,
+      "hashtag": "Archery",
+      "icon": "🏹"
+    },
+    {
+      "id": 65,
+      "hashtag": "Origami",
+      "icon": "🎐"
+    },
+    {
+      "id": 66,
+      "hashtag": "Beer",
+      "icon": "🍺"
+    },
+    {
+      "id": 67,
+      "hashtag": "Cooking outdoors",
+      "icon": "🍳🏕️"
+    },
+    {
+      "id": 68,
+      "hashtag": "Camping",
+      "icon": "🏕️"
+    },
+    {
+      "id": 69,
+      "hashtag": "Sketching",
+      "icon": "🖊️"
+    },
+    {
+      "id": 70,
+      "hashtag": "Pottery",
+      "icon": "🏺"
+    },
+    {
+      "id": 71,
+      "hashtag": "Knitting",
+      "icon": "🧶"
+    },
+    {
+      "id": 72,
+      "hashtag": "Fitness classes",
+      "icon": "🏋️‍♂️🤸‍♀️"
+    },
+    {
+      "id": 73,
+      "hashtag": "Farming",
+      "icon": "🚜"
+    },
+    {
+      "id": 74,
+      "hashtag": "Astronomy",
+      "icon": "🌌"
+    },
+    {
+      "id": 75,
+      "hashtag": "Tattoos",
+      "icon": "🖋️"
+    },
+    {
+      "id": 76,
+      "hashtag": "Magic",
+      "icon": "🎩"
+    },
+    {
+      "id": 77,
+      "hashtag": "Paranormal",
+      "icon": "👻"
+    },
+    {
+      "id": 78,
+      "hashtag": "Tattoos",
+      "icon": "🖋️"
+    },
+    {
+      "id": 79,
+      "hashtag": "Vintage cars",
+      "icon": "🚗🕰️"
+    },
+    {
+      "id": 80,
+      "hashtag": "Homebrewing",
+      "icon": "🍻"
+    },
+    {
+      "id": 81,
+      "hashtag": "Geocaching",
+      "icon": "🗺️"
+    },
+    {
+      "id": 82,
+      "hashtag": "Interior design",
+      "icon": "🏠"
+    },
+    {
+      "id": 83,
+      "hashtag": "DIY electronics",
+      "icon": "🛠️🔌"
+    },
+    {
+      "id": 84,
+      "hashtag": "Music festivals",
+      "icon": "🎵🎶"
+    },
+    {
+      "id": 85,
+      "hashtag": "Street art",
+      "icon": "🎨🏙️"
+    },
+    {
+      "id": 86,
+      "hashtag": "Stand-up comedy",
+      "icon": "🎤😆"
+    },
+    {
+      "id": 87,
+      "hashtag": "Extreme sports",
+      "icon": "🤸‍♂️"
+    },
+    {
+      "id": 88,
+      "hashtag": "Beach life",
+      "icon": "🏖️🌊"
+    },
+    {
+      "id": 89,
+      "hashtag": "Food blogging",
+      "icon": "🍔📸"
+    },
+    {
+      "id": 90,
+      "hashtag": "Farm-to-table",
+      "icon": "🌽🍅"
+    },
+    {
+      "id": 91,
+      "hashtag": "Travel photography",
+      "icon": "📷✈️"
+    },
+    {
+      "id": 92,
+      "hashtag": "Food trucks",
+      "icon": "🚚🍕"
+    },
+    {
+      "id": 93,
+      "hashtag": "Fashion design",
+      "icon": "👗✂️"
+    },
+    {
+      "id": 94,
+      "hashtag": "Historical landmarks",
+      "icon": "🏰🗺️"
+    },
+    {
+      "id": 95,
+      "hashtag": "DIY home repairs",
+      "icon": "🏠🔧"
+    },
+    {
+      "id": 96,
+      "hashtag": "Wildlife photography",
+      "icon": "📷🦁"
+    },
+    {
+      "id": 97,
+      "hashtag": "Music production",
+      "icon": "🎧🎹"
+    },
+    {
+      "id": 98,
+      "hashtag": "Pet grooming",
+      "icon": "🐶🛁"
+    },
+    {
+      "id": 99,
+      "hashtag": "Indoor gardening",
+      "icon": "🌱🏡"
+    },
+    {
+      "id": 100,
+      "hashtag": "Local food exploration",
+      "icon": "🍴🌮"
+    }
+]

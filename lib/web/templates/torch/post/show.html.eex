@@ -1,0 +1,106 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%= link "Approve", to: Routes.torch_post_path(@conn, :approve_post_review, @post.id), class: "torch-button", method: :post, data: [confirm: "Are you sure?"] %>
+    <%= link "Reject", to: Routes.torch_post_path(@conn, :reject_post_review, @post.id), class: "torch-button", method: :post, data: [confirm: "Are you sure?"] %>
+  </div>
+</section>
+
+<section id="torch-header-and-content">
+  <div class="torch-container">
+    <div class="header">
+      <h3>Post Details</h3>
+    </div>
+    <ul>
+
+        <li>
+          <div class="torch-show-label">Author ID:</div>
+          <div class="torch-show-data"><%= link @post.author_id, to: Routes.torch_user_path(@conn, :show, @post.author_id) %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Title:</div>
+          <div class="torch-show-data"><%= @post.title %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Body:</div>
+          <div class="torch-show-data"><%= @post.body %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Location:</div>
+          <div class="torch-show-data"><%= @post.location.long %>, <%= @post.location.lat %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Type:</div>
+          <div class="torch-show-data"><%= @post.type %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Private?</div>
+          <div class="torch-show-data"><%= @post.private? %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Approved?</div>
+          <div class="torch-show-data"><%= @post.approved? %></div>
+        </li>
+
+        <%= if @post.provider_id do %>
+
+        <li>
+          <div class="torch-show-label">Event provider</div>
+          <div class="torch-show-data"><%= @post.event_provider %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Event provider ID</div>
+          <div class="torch-show-data"><%= @post.provider_id %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Event provider URLs</div>
+          <div class="torch-show-data">
+            <%= if Enum.any?(@post.provider_urls) do %>
+              <% for url <- @post.provider_urls do %>
+                <%= url %>
+              <% end %>
+            <% else %>
+              N/A
+            <% end %>
+          </div>
+        </li>
+
+        <% end %>
+
+        <li>
+          <div class="torch-show-label">Hidden?</div>
+          <div class="torch-show-data"><%= @post.hidden? %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Reports count</div>
+          <div class="torch-show-data"><%= @post.reports_count %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Review status</div>
+          <div class="torch-show-data">
+            <%= @post.review_status || "NULL" %>
+            <%= if @post.review_status != "accepted" do %>
+              <%= link "Approve", to: Routes.torch_post_path(@conn, :approve_post_review, @post.id), class: "torch-inline-button", method: :post, data: [confirm: "Are you sure?"] %>
+            <% else %>
+              <%= link "Reject", to: Routes.torch_post_path(@conn, :reject_post_review, @post.id), class: "torch-inline-button", method: :post, data: [confirm: "Are you sure?"] %>
+            <% end %>
+          </div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Last reviewed at</div>
+          <div class="torch-show-data"><%= @post.last_reviewed_at || "NULL" %></div>
+        </li>
+
+    </ul>
+  </div>
+</section>

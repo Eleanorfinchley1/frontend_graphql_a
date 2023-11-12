@@ -1,0 +1,73 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%= link "New interest category", to: Routes.torch_interest_category_path(@conn, :new) %>
+  </div>
+</section>
+
+<section id="torch-index-content">
+  <div class="torch-container">
+    <section id="torch-filters">
+      <h3>Find Interest Category</h3>
+      <%= form_tag @conn.request_path, method: :get, id: "torch-filters-form" do %>
+
+          <input type="hidden" name="sort_direction" value="<%= @sort_direction %>" />
+          <input type="hidden" name="sort_field" value="<%= @sort_field %>" />
+
+          <div class="field">
+            <label>ID</label>
+            <%= number_filter_select(:interest_category, :id, @conn.params) %>
+            <%= filter_number_input(:interest_category, :id, @conn.params) %>
+          </div>
+
+          <div class="field">
+            <label>Name</label>
+            <%= filter_select(:interest_category, :name, @conn.params) %>
+            <%= filter_string_input(:interest_category, :name, @conn.params) %>
+          </div>
+
+        <button type="submit" class="torch-button">Search</button>
+        <%= link "Clear Filters", to: Routes.torch_interest_category_path(@conn, :index) %>
+      <% end %>
+
+    </section>
+
+    <section id="torch-table">
+    <%= if length(@interest_categories) > 0 do %>
+      <%= render Torch.PaginationView, "_pagination.html", assigns %>
+      <table>
+        <thead>
+          <tr>
+
+              <th><%= table_link(@conn, "ID", :id) %></th>
+
+              <th><%= table_link(@conn, "Name", :name) %></th>
+
+              <th><span>Icon</span></th>
+
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= for category <- @interest_categories do %>
+            <tr>
+                <td><%= link category.id, to: Routes.torch_interest_category_path(@conn, :show, category) %></td>
+
+                <td><%= category.name %></td>
+
+                <td><%= category.icon %></td>
+
+              <td class="torch-actions">
+                <span><%= link "Show", to: Routes.torch_interest_category_path(@conn, :show, category) %></span>
+                <span><%= link "Delete", to: Routes.torch_interest_category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure?"] %></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= render Torch.PaginationView, "_pagination.html", assigns %>
+    <% else %>
+      <p class="torch-no-data">No Interest Categories match your search.</p>
+    <% end %>
+    </section>
+  </div>
+</section>

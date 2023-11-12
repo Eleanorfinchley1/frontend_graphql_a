@@ -1,0 +1,7 @@
+<p>showing <%= @post.type %> post "<%= @post.title %>"</p>
+
+<pre class="pre pa2 bg-light-gray"><%=
+  "show.json"
+  |> Web.PostView.render(post: @post)
+  |> Jason.encode!(pretty: true)
+%></pre>

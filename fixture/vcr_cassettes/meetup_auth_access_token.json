@@ -1,0 +1,83 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "recv_timeout": 5000,
+        "connect_timeout": 5000
+      },
+      "request_body": "",
+      "url": "https://secure.meetup.com/oauth2/authorize"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"code\":\"250dbbc5007e423dc73ac4f25ca497a3\"}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Server": "Apache-Coyote/1.1",
+        "P3P": "CP=\"CAO DSP LAW CUR DEVa TAIa PSAi PSDi OTPi OUR IND UNI NAV DEM STA LOC OTC\"",
+        "X-Meetup-server": "5372d2b92da5",
+        "X-Frame-Options": "sameorigin",
+        "Strict-Transport-Security": "max-age=7776000",
+        "X-XSS-Protection": "1; mode=block",
+        "Pragma": "No-cache",
+        "Cache-Control": "no-store",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "Content-Language": "en-US",
+        "Set-Cookie": "MEETUP_MEMBER=\"id=0&status=1&timestamp=1580794572&bs=0&tz=US%2FEastern&zip=&country=us&city=&state=&lat=0.0&lon=0.0&ql=false&s=160ff638ad6f7086bc204ea3d075ad1ebcb6a886&scope=ALL\"; Version=1; Domain=.meetup.com; Path=/; Secure; HttpOnly",
+        "Content-Length": "43",
+        "Accept-Ranges": "bytes",
+        "Date": "Tue, 04 Feb 2020 05:36:12 GMT",
+        "Via": "1.1 varnish",
+        "Connection": "keep-alive",
+        "X-Served-By": "cache-hhn4043-HHN",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1580794573.718559,VS0,VE195",
+        "Vary": "User-Agent,Accept-Language"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "timeout": "5000",
+        "recv_timeout": "5000"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://secure.meetup.com/oauth2/access"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"access_token\":\"4986c3b2ef02ed643f637064003399e7\",\"refresh_token\":\"54689324b5fd001aff9d9a0a60360ae6\",\"member\":{\"country\":\"ru\",\"city\":\"Moscow\",\"name\":\"prereg_member_8254347036754253\",\"lon\":37.615558,\"id\":301877668,\"state\":\"71\",\"lat\":55.752220},\"token_type\":\"bearer\",\"expires_in\":3600}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Server": "Apache-Coyote/1.1",
+        "Cache-Control": "no-store",
+        "Content-Language": "en-US",
+        "Set-Cookie": "MEETUP_MEMBER=\"id=0&status=1&timestamp=1580794573&bs=0&tz=US%2FEastern&zip=&country=us&city=&state=&lat=0.0&lon=0.0&ql=false&s=29fb6f105f1dafef97f3276c58242bdca3867064&scope=ALL\"; Version=1; Domain=.meetup.com; Path=/; Secure; HttpOnly",
+        "Content-Length": "291",
+        "Accept-Ranges": "bytes",
+        "Date": "Tue, 04 Feb 2020 05:36:13 GMT",
+        "Via": "1.1 varnish",
+        "Connection": "keep-alive",
+        "X-Served-By": "cache-hhn4043-HHN",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1580794573.991041,VS0,VE124",
+        "Vary": "Accept-Encoding,User-Agent,Accept-Language"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

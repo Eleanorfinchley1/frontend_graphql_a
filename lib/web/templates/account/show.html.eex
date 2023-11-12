@@ -1,0 +1,13 @@
+
+<h2>Recover Password</h2>
+
+<%= form_for @conn, user_path(@conn, :change_password), fn f -> %>
+  <div>
+    <%= hidden_input f, :hash, value: @data.hash %>
+    <%= password_input f, :password%>
+  </div>
+
+  <div>
+    <%= submit "Submit"%>
+  </div>
+<% end %>

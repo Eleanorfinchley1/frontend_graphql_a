@@ -1,0 +1,6 @@
+<div>
+    <h1>Dropchats</h1>
+    <p>Invited to Dropchats Admin Page!</p>
+    <p>Please use the following link to accept invitation: <a href="<%= @data.url %>">Accept</a></p>
+    <p>The Dropchats team!</p>
+</div>

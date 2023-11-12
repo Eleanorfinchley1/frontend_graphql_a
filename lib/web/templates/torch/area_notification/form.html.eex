@@ -1,0 +1,68 @@
+<%= form_for @changeset, @action, [multipart: true, id: "torch-form"], fn f -> %>
+  <fieldset class="torch-panel">
+    <legend>
+      <span>Details</span>
+    </legend>
+    <%= if @changeset.action do %>
+      <p class="torch-form-error">Oops, something went wrong! Please check the errors below.</p>
+    <% end %>
+
+    <div class="torch-form-group">
+      <%= label f, "Owner id or username" %>
+      <%= text_input f, :owner_ref %>
+      <%= error_tag f, :owner_ref %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, :title %>
+      <%= text_input f, :title %>
+      <%= error_tag f, :title %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, :message %>
+      <%= textarea f, :message, rows: 10 %>
+      <%= error_tag f, :message %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, :timezone %>
+      <%= text_input f, :timezone %>
+      <%= error_tag f, :timezone %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, :latitude %>
+      <%= text_input f, :latitude %>
+      <%= error_tag f, :latitude %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, :longitude %>
+      <%= text_input f, :longitude %>
+      <%= error_tag f, :longitude %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, "Radius (meters)" %>
+      <%= text_input f, :radius %>
+      <%= error_tag f, :radius %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, :logo %>
+      <%= file_input f, :logo %>
+      <%= error_tag f, :logo %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, :image %>
+      <%= file_input f, :image %>
+      <%= error_tag f, :image %>
+    </div>
+
+    <div class="torch-submit-form">
+      <%= submit "Submit", class: "torch-submit-button" %>
+    </div>
+  </fieldset>
+<% end %>

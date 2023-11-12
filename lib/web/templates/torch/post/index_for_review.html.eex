@@ -1,0 +1,98 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+  </div>
+</section>
+
+<section id="torch-index-content">
+  <div class="torch-container">
+    <section id="torch-filters">
+      <h3>Find Posts</h3>
+      <%= form_tag @conn.request_path, method: :get, id: "torch-filters-form" do %>
+
+          <input type="hidden" name="sort_direction" value="<%= @sort_direction %>" />
+          <input type="hidden" name="sort_field" value="<%= @sort_field %>" />
+
+          <div class="field">
+            <label>ID</label>
+            <%= number_filter_select(:post, :id, @conn.params) %>
+            <%= filter_number_input(:post, :id, @conn.params) %>
+          </div>
+
+          <div class="field">
+            <label>Reports count</label>
+            <%= number_filter_select(:post, :reports_count, @conn.params) %>
+            <%= filter_number_input(:post, :reports_count, @conn.params) %>
+          </div>
+
+          <div class="field">
+            <label>Review status</label>
+            <select class="filter-type" id="filters_" name="filters[]"><option value="post[review_status_equals]" selected="">Equals</option></select>
+            <%= filter_assoc_select(:post, :review_status, [{"pending", "pending"}, {"rejected", "rejected"}, {"accepted", "accepted"}], @conn.params) %>
+          </div>
+
+          <!-- <div class="field">
+            <label>Last reviewed at</label>
+            <%= filter_date_input(:post, :last_reviewed_at, @conn.params) %>
+          </div> -->
+
+        <button type="submit" class="torch-button">Search</button>
+        <%= link "Clear Filters", to: Routes.torch_post_path(@conn, :index_for_review) %>
+      <% end %>
+
+    </section>
+
+    <section id="torch-table">
+    <%= if length(@posts) > 0 do %>
+      <%= render Torch.PaginationView, "_pagination.html", assigns %>
+      <table>
+        <thead>
+          <tr>
+
+              <th><%= table_link(@conn, "ID", :id) %></th>
+
+              <th><%= table_link(@conn, "Type", :type) %></th>
+
+              <th><%= table_link(@conn, "Review status", :review_status) %></th>
+
+              <th><%= table_link(@conn, "Last reviewed at", :last_reviewed_at) %></th>
+
+              <th><%= table_link(@conn, "Reports count", :reports_count) %></th>
+
+              <th><%= table_link(@conn, "Title", :title) %></th>
+
+              <th><%= table_link(@conn, "Body", :body) %></th>
+
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= for post <- @posts do %>
+            <tr>
+                <td><%= link post.id, to: Routes.torch_post_path(@conn, :show, post) %></td>
+
+                <td><%= post.type %></td>
+
+                <td><%= post.review_status %></td>
+
+                <td><%= post.last_reviewed_at %></td>
+
+                <td><%= post.reports_count %></td>
+
+                <td><%= post.title %></td>
+
+                <td class="torch-truncated"><%= post.body %></td>
+
+              <td class="torch-actions">
+                <span><%= link "Show", to: Routes.torch_post_path(@conn, :show, post) %></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= render Torch.PaginationView, "_pagination.html", assigns %>
+    <% else %>
+      <p class="torch-no-data">No Posts match your search.</p>
+    <% end %>
+    </section>
+  </div>
+</section>

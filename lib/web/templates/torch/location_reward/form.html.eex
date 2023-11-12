@@ -1,0 +1,50 @@
+<%= form_for @changeset, @action, [multipart: true, id: "torch-form"], fn f -> %>
+  <fieldset class="torch-panel">
+    <legend>
+      <span>Details</span>
+    </legend>
+    <%= if @changeset.action do %>
+      <p class="torch-form-error">Oops, something went wrong! Please check the errors below.</p>
+    <% end %>
+
+    <div class="torch-form-group">
+      <%= label f, :latitude %>
+      <%= text_input f, :latitude %>
+      <%= error_tag f, :latitude %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, :longitude %>
+      <%= text_input f, :longitude %>
+      <%= error_tag f, :longitude %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, "Radius (meters)" %>
+      <%= text_input f, :radius %>
+      <%= error_tag f, :radius %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, "Streaming points" %>
+      <%= text_input f, :stream_points %>
+      <%= error_tag f, :stream_points %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, "Started at" %>
+      <%= text_input f, :started_at %>
+      <%= error_tag f, :started_at %>
+    </div>
+
+    <div class="torch-form-group">
+      <%= label f, "Ended at" %>
+      <%= text_input f, :ended_at %>
+      <%= error_tag f, :ended_at %>
+    </div>
+
+    <div class="torch-submit-form">
+      <%= submit "Submit", class: "torch-submit-button" %>
+    </div>
+  </fieldset>
+<% end %>

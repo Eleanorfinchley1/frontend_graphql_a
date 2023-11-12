@@ -1,0 +1,19 @@
+[Unit]
+Description=billbored
+After=network-online.target cloud-sql-proxy.service
+Requires=cloud-sql-proxy.service
+
+[Service]
+Type=simple
+User=billbored
+Group=billbored
+WorkingDirectory=/opt/billbored/
+ExecStart=/opt/billbored/bin/billbored foreground
+Restart=on-failure
+RestartSec=5
+EnvironmentFile=/etc/billbored.env
+SyslogIdentifier=billbored
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

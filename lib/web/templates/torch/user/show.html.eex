@@ -1,0 +1,111 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%= link "Back", to: Routes.torch_user_path(@conn, :index), class: "torch-button" %>
+    <%= link "User posts", to: Routes.torch_post_path(@conn, :index, %{"post[author_id_equals]" => @user.id}), class: "torch-button" %>
+    <%= link "Blocked users", to: Routes.torch_user_path(@conn, :index, %{"user[blocked_to_id_equals]" => @user.id}), class: "torch-button" %>
+    <%= link "Blockers", to: Routes.torch_user_path(@conn, :index, %{"user[blocked_from_id_equals]" => @user.id}), class: "torch-button" %>
+  </div>
+</section>
+
+<section id="torch-header-and-content">
+  <div class="torch-container">
+    <div class="header">
+      <h3>User Details</h3>
+    </div>
+    <ul>
+
+        <li>
+          <div class="torch-show-label">Username:</div>
+          <div class="torch-show-data"><%= @user.username %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Date joined</div>
+          <div class="torch-show-data"><%= @user.date_joined %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">First name:</div>
+          <div class="torch-show-data"><%= @user.first_name %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Last name:</div>
+          <div class="torch-show-data"><%= @user.last_name %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Email:</div>
+          <div class="torch-show-data"><%= @user.email %></div>
+        </li>
+
+        <%= if @user.provider_id do %>
+
+        <li>
+          <div class="torch-show-label">Event provider</div>
+          <div class="torch-show-data"><%= @user.event_provider %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Event provider ID</div>
+          <div class="torch-show-data"><%= @user.provider_id %></div>
+        </li>
+
+        <% end %>
+
+        <li>
+          <div class="torch-show-label">Banned?:</div>
+          <div class="torch-show-data">
+            <%= @user.banned? %>
+            <%= if @user.banned? do %>
+              <%= link "Unban", to: Routes.torch_user_path(@conn, :unban_user, @user.id), class: "torch-inline-button", method: :post, data: [confirm: "Are you sure?"] %>
+            <% else %>
+              <%= link "Ban", to: Routes.torch_user_path(@conn, :ban_user, @user.id), class: "torch-inline-button", method: :post, data: [confirm: "Are you sure?"] %>
+            <% end %>
+          </div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Access restricted?:</div>
+          <div class="torch-show-data">
+            <%= @user.flags["access"] == "restricted" %>
+            <%= if @user.flags["access"] == "restricted" do %>
+              <%= link "Grant access", to: Routes.torch_user_path(@conn, :grant_access, @user.id), class: "torch-inline-button", method: :post, data: [confirm: "Are you sure?"] %>
+            <% else %>
+              <%= link "Restrict access", to: Routes.torch_user_path(@conn, :restrict_access, @user.id), class: "torch-inline-button", method: :post, data: [confirm: "Are you sure?"] %>
+            <% end %>
+          </div>
+        </li>
+
+        <%= if @user.flags["access"] == "restricted" do %>
+          <li>
+            <div class="torch-show-label">Restriction reason</div>
+            <div class="torch-show-data"><%= @user.flags["restriction_reason"] %></div>
+          </li>
+        <% end %>
+
+    </ul>
+  </div>
+
+  <div class="torch-container">
+    <div class="header">
+      <h3>Recommendations (<%= link "show", to: Routes.torch_user_recommendation_path(@conn, :index, %{"user_recommendation[user_id_equals]" => @user.id}) %>)</h3>
+    </div>
+
+    <%= if length(@user.recommendations) > 0 do %>
+      <ul>
+      <%= for recommendation <- @user.recommendations do %>
+        <li>
+          <div class="torch-show-label"><%= recommendation.id %></div>
+          <div class="torch-show-data"><%= recommendation.type %></div>
+        </li>
+      <% end %>
+      </ul>
+    <% else %>
+      <ul>
+        <%= link "Recommend for autofollow", to: Routes.torch_user_recommendation_path(@conn, :create, %{"return_url" => Routes.torch_user_path(@conn, :show, @user.id), "user_recommendation" => %{"user_id" => @user.id, "type" => "autofollow"}}), class: "torch-inline-button", method: :post %>
+      </ul>
+    <% end %>
+
+  </div>
+</section>

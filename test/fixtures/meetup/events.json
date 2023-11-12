@@ -1,0 +1,132 @@
+[
+  {
+    "group": {
+      "category": {"shortname": "tech"},
+      "id": 1001,
+      "key_photo": {
+        "photo_link": "https://secure.meetupstatic.com/photos/1.jpeg"
+      },
+      "lat": 51.4900016784668,
+      "lon": -0.15000000596046448,
+      "name": "Tech group",
+      "photo": {
+        "photo_link": "https://secure.meetupstatic.com/photos/2.jpeg"
+      },
+      "urlname": "tech-group"
+    },
+    "id": 1,
+    "link": "https://www.meetup.com/events/1/",
+    "name": "Tech event",
+    "description": "Tech event body",
+    "time": 1584385200000,
+    "duration": 7200000
+  },
+
+  {
+    "id": 2,
+    "link": "https://www.meetup.com/events/2/",
+    "name": "Event without group (invalid)",
+    "time": 1582394400000
+  },
+
+  {
+    "event_hosts": [
+      {
+        "id": 2002,
+        "name": "Jim",
+        "role": "something_else"
+      },
+      {
+        "id": 2001,
+        "name": "Robert",
+        "role": "organizer"
+      }
+    ],
+    "group": {
+      "category": {"shortname": "music"},
+      "id": 1002,
+      "key_photo": {
+        "photo_link": "https://secure.meetupstatic.com/photos/1.jpeg"
+      },
+      "lat": 51.52000045776367,
+      "lon": -0.10000000149011612,
+      "name": "Music group",
+      "photo": {
+        "photo_link": "https://secure.meetupstatic.com/photos/2.jpeg"
+      },
+      "urlname": "music-group"
+    },
+    "featured_photo": {
+      "photo_link": "https://secure.meetupstatic.com/photos/2.jpeg"
+    },
+    "id": 3,
+    "link": "https://www.meetup.com/events/3/",
+    "name": "Music event",
+    "description": "Music event body",
+    "time": 1582920000000,
+    "fee": {
+      "amount": 28.0,
+      "currency": "GBP"
+    }
+  },
+
+  {
+    "event_hosts": [
+      {
+        "id": 2001,
+        "name": "Robert",
+        "role": "organizer"
+      }
+    ],
+    "group": {
+      "id": 1003,
+      "name": "Uncategorised group",
+      "urlname": "generic-group"
+    },
+    "featured_photo": {
+      "photo_link": "https://secure.meetupstatic.com/photos/3.jpeg"
+    },
+    "id": 4,
+    "link": "https://www.meetup.com/events/4/",
+    "name": "Uncategorized event",
+    "description": "Generic event body",
+    "time": 1582920000000,
+    "duration": 27000000,
+    "venue": {
+      "lat": 51.5,
+      "lon": -0.12999999523162842
+    }
+  },
+
+  {
+    "group": {
+      "id": 1004,
+      "lat": 51.5,
+      "lon": -0.13,
+      "name": "Group",
+      "urlname": "group"
+    },
+    "id": 5,
+    "link": "https://www.meetup.com/events/5/",
+    "name": "Event with invalid fee",
+    "time": 1581846300000,
+    "fee": {
+      "amount": 666,
+      "currency": "invalid"
+    }
+  },
+
+  {
+    "group": {
+      "id": 1006,
+      "lat": 0,
+      "lon": 0.0,
+      "name": "Group",
+      "urlname": "group"
+    },
+    "id": 6,
+    "link": "https://www.meetup.com/events/5/",
+    "name": "Event with invalid location",
+    "time": 1581846400000
+  }
+]

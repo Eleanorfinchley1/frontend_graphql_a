@@ -1,0 +1,6 @@
+<div>
+    <h1>Hi, <%= @data.username %>!</h1>
+    <p>Your temporary password is "<%= @data.password %>".</p>
+    <p>Please use the above credentials to log in <a href="<%= @data.url %>">Admin Page</a> and change the password.</p>
+    <p>The Dropchats team!</p>
+</div>

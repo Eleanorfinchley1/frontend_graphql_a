@@ -1,0 +1,99 @@
+[
+  {
+    "event_id": "1",
+    "event_url": "https://allevents.in/london/1",
+    "categories": ["Art", "fine-arts"],
+    "owner_id": "1001",
+    "venue": {
+      "city": "London",
+      "latitude": 51.496639251708984,
+      "longitude": -0.17217999696731567
+    },
+    "start_time": 1581242400,
+    "end_time": 1581265800,
+    "eventname": "Art event",
+    "banner_url": "https://cdn-az.allevents.in/events/banners/1"
+  },
+
+  {
+    "event_id": "2",
+    "name": "Event without venue (invalid)"
+  },
+
+  {
+    "event_id": "3",
+    "event_url": "https://allevents.in/london/3",
+    "categories": ["health-wellness", "Workshops"],
+    "owner_id": "",
+    "venue": {
+      "city": "London",
+      "latitude": 51.502437591552734,
+      "longitude": -0.14457829296588898
+    },
+    "start_time": 1581244200,
+    "end_time": 1581251400,
+    "eventname": "Yoga event",
+    "banner_url": "https://cdn-az.allevents.in/events/banners/3",
+    "thumb_url": "https://cdn-az.allevents.in/events/thumbs/3",
+    "tickets": {
+      "has_tickets": false,
+      "max_ticket_price": 120,
+      "min_ticket_price": 60,
+      "ticket_currency": "GBP",
+      "ticket_url": ""
+    }
+  },
+
+  {
+    "event_id": "4",
+    "event_url": "https://allevents.in/london/4",
+    "categories": ["Entertainment", "Music", "Festivals", "Meetups"],
+    "owner_id": "1001",
+    "venue": {
+      "city": "Victoria",
+      "latitude": 51.49580764770508,
+      "longitude": -0.13944000005722046
+    },
+    "start_time": 1581444000,
+    "end_time": "",
+    "eventname": "Festival event",
+    "thumb_url": "https://cdn-az.allevents.in/events/thumbs/4"
+  },
+
+  {
+    "event_id": "5",
+    "event_url": "https://allevents.in/london/5",
+    "categories": [],
+    "owner_id": "",
+    "venue": {
+      "city": "London",
+      "latitude": 51.50505828857422,
+      "longitude": -0.1472000926733017
+    },
+    "start_time": 1581359400,
+    "end_time": 1581372000,
+    "eventname": "Event with invalid currency",
+    "tickets": {
+      "has_tickets": false,
+      "max_ticket_price": 5,
+      "min_ticket_price": 5,
+      "ticket_currency": "invalid",
+      "ticket_url": ""
+    }
+  },
+
+  {
+    "event_id": "6",
+    "event_url": "https://allevents.in/london/6",
+    "categories": [],
+    "owner_id": "",
+    "venue": {
+      "city": "London",
+      "latitude": 0.0,
+      "longitude": 0
+    },
+    "start_time": 1581359500,
+    "end_time": 1581372000,
+    "eventname": "Event with invalid location"
+  }
+]

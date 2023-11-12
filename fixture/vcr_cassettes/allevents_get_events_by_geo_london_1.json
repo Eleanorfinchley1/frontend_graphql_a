@@ -1,0 +1,36 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "***"
+      },
+      "method": "post",
+      "options": {
+        "recv_timeout": 5000,
+        "connect_timeout": 5000
+      },
+      "request_body": "",
+      "url": "https://api.allevents.in/events/geo/?latitude=51.2&longitude=-0.15&radius=1"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"message\":\"\",\"error\":0,\"request\":{\"page\":0,\"rows\":100},\"data\":[{\"event_id\":\"200019053177720\",\"eventname\":\"Spartan SGX Fitness\",\"eventname_raw\":\"Spartan SGX Fitness\",\"owner_id\":\"134245337195935\",\"thumb_url\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/6f8b8280-4aa3-11ea-b84b-2b8347f4692a-rimg-w300-h300-gmir?v=1581187640\",\"thumb_url_large\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/6f8b8280-4aa3-11ea-b84b-2b8347f4692a-rimg-w300-h300-gmir?v=1581187640\",\"start_time\":1581530400,\"start_time_display\":\"Wed Feb 12 2020 at 06:00 pm\",\"end_time\":1581534000,\"end_time_display\":\"Wed Feb 12 2020 at 07:00 pm\",\"location\":\"Obstacle Play Park\",\"venue\":{\"street\":\"Redhill, United Kingdom\",\"city\":\"Crawley\",\"state\":\"EN\",\"country\":\"United Kingdom\",\"latitude\":51.20545196533203,\"longitude\":-0.14849849045276642,\"full_address\":\"Obstacle Play Park, Redhill, United Kingdom, Crawley, United Kingdom\"},\"label\":\"Upcoming\",\"featured\":0,\"event_url\":\"https:\\/\\/allevents.in\\/crawley\\/spartan-sgx-fitness\\/200019053177720\",\"share_url\":\"https:\\/\\/allevents.in\\/crawley\\/200019053177720\",\"banner_url\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/6e7f90c0-4aa3-11ea-bc95-4188e8effbfb-rimg-w526-h394-gmir.jpg?v=1581187638\",\"score\":53.869998931884766,\"categories\":[\"Sports\",\"Workshops\",\"Nonprofit\"],\"tags\":[\"Fitness\",\"race\",\"training\",\"class\",\"benefit\"],\"tickets\":{\"has_tickets\":false,\"ticket_url\":\"\"},\"custom_params\":[],\"display_day\":\"12\",\"display_month\":\"Feb\"},{\"event_id\":\"200019053177419\",\"eventname\":\"Spartan Obstacle Workshop\",\"eventname_raw\":\"Spartan Obstacle Workshop\",\"owner_id\":\"134245337195935\",\"thumb_url\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/6efd9a60-4aa3-11ea-a4d4-7140c9237cef-rimg-w300-h300-gmir?v=1581187639\",\"thumb_url_large\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/6efd9a60-4aa3-11ea-a4d4-7140c9237cef-rimg-w300-h300-gmir?v=1581187639\",\"start_time\":1582371000,\"start_time_display\":\"Sat Feb 22 2020 at 11:30 am\",\"end_time\":1582376400,\"end_time_display\":\"Sat Feb 22 2020 at 01:00 pm\",\"location\":\"Obstacle Play Park\",\"venue\":{\"street\":\"Redhill, United Kingdom\",\"city\":\"Crawley\",\"state\":\"EN\",\"country\":\"United Kingdom\",\"latitude\":51.20545196533203,\"longitude\":-0.14849849045276642,\"full_address\":\"Obstacle Play Park, Redhill, United Kingdom, Crawley, United Kingdom\"},\"label\":\"Upcoming\",\"featured\":0,\"event_url\":\"https:\\/\\/allevents.in\\/crawley\\/spartan-obstacle-workshop\\/200019053177419\",\"share_url\":\"https:\\/\\/allevents.in\\/crawley\\/200019053177419\",\"banner_url\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/6def5eb0-4aa3-11ea-8fa6-95fae040006f-rimg-w526-h701-gmir.jpg?v=1581187637\",\"score\":0,\"categories\":[\"Sports\",\"Workshops\"],\"tags\":[\"Fitness\",\"race\",\"Workshop\"],\"tickets\":{\"has_tickets\":false,\"ticket_url\":\"\"},\"custom_params\":[],\"display_day\":\"22\",\"display_month\":\"Feb\"},{\"event_id\":\"200019053166247\",\"eventname\":\"SalsaBug Urban Salsa Party\",\"eventname_raw\":\"SalsaBug Urban Salsa Party\",\"owner_id\":\"\",\"thumb_url\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/5c195470-4aa3-11ea-bfc9-b511fbac5069-rimg-w300-h300-gmir?v=1581187607\",\"thumb_url_large\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/5c195470-4aa3-11ea-bfc9-b511fbac5069-rimg-w300-h300-gmir?v=1581187607\",\"start_time\":1583611200,\"start_time_display\":\"Sat Mar 07 2020 at 08:00 pm\",\"end_time\":1583611200,\"end_time_display\":\"Sat Mar 07 2020 at 08:00 pm\",\"location\":\"Monotype - Perrywood Sports &amp; Social Club\",\"venue\":{\"street\":\"Honeycrock Lane, RH1 5JP Salfords\",\"city\":\"Crawley\",\"state\":\"EN\",\"country\":\"United Kingdom\",\"latitude\":51.20182418823242,\"longitude\":-0.15955354273319244,\"full_address\":\"Monotype - Perrywood Sports &amp; Social Club, Honeycrock Lane, RH1 5JP Salfords, Crawley, United Kingdom\"},\"label\":\"Upcoming\",\"featured\":0,\"event_url\":\"https:\\/\\/allevents.in\\/crawley\\/salsabug-urban-salsa-party\\/200019053166247\",\"share_url\":\"https:\\/\\/allevents.in\\/crawley\\/200019053166247\",\"banner_url\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/5b24bb40-4aa3-11ea-bfc9-b511fbac5069-rimg-w552-h265-gmir.jpg?v=1581187606\",\"score\":0,\"categories\":[\"Entertainment\",\"Parties\",\"Workshops\",\"dance\",\"Sports\"],\"tags\":[\"Dance\",\"Party\",\"Salsa\",\"class\",\"sport\"],\"tickets\":{\"has_tickets\":false,\"ticket_url\":\"\"},\"custom_params\":[],\"display_day\":\"07\",\"display_month\":\"Mar\"},{\"event_id\":\"200019053165346\",\"eventname\":\"Ska in the bar\",\"eventname_raw\":\"Ska in the bar\",\"owner_id\":\"1563294070555735\",\"thumb_url\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/5b2ecd60-4aa3-11ea-879c-d7f831cfd478-rimg-w300-h300-gmir?v=1581187606\",\"thumb_url_large\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/5b2ecd60-4aa3-11ea-879c-d7f831cfd478-rimg-w300-h300-gmir?v=1581187606\",\"start_time\":1588442400,\"start_time_display\":\"Sat May 02 2020 at 06:00 pm\",\"end_time\":1588458600,\"end_time_display\":\"Sat May 02 2020 at 10:30 pm\",\"location\":\"Monotype - Perrywood Sports &amp; Social Club\",\"venue\":{\"street\":\"Honeycrock Lane, RH1 5JP Salfords\",\"city\":\"Crawley\",\"state\":\"EN\",\"country\":\"United Kingdom\",\"latitude\":51.20182418823242,\"longitude\":-0.15955354273319244,\"full_address\":\"Monotype - Perrywood Sports &amp; Social Club, Honeycrock Lane, RH1 5JP Salfords, Crawley, United Kingdom\"},\"label\":\"Upcoming\",\"featured\":0,\"event_url\":\"https:\\/\\/allevents.in\\/crawley\\/ska-in-the-bar\\/200019053165346\",\"share_url\":\"https:\\/\\/allevents.in\\/crawley\\/200019053165346\",\"banner_url\":\"https:\\/\\/cdn7.allevents.in\\/banners\\/5a2a0790-4aa3-11ea-897f-110392860243-rimg-w526-h933-gmir.jpg?v=1581187604\",\"score\":42.619998931884766,\"categories\":[],\"tags\":[],\"tickets\":{\"has_tickets\":false,\"ticket_url\":\"\"},\"custom_params\":[],\"display_day\":\"02\",\"display_month\":\"May\"}],\"count\":4}\n",
+      "headers": {
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "application/json",
+        "Vary": "Accept-Encoding",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800,report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Alt-Svc": "h3-24=\":443\"; ma=86400,h3-23=\":443\"; ma=86400",
+        "CF-RAY": "5624ac36ab15c1a2-IAD",
+        "Set-Cookie": "__cfduid=d396633f5c1eb84d244ac8bfc79f5e4b41581239033; expires=Tue, 10-Mar-20 09:03:53 GMT; path=/; domain=.allevents.in; HttpOnly; SameSite=Lax",
+        "Date": "Sun, 09 Feb 2020 09:03:53 GMT"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -1,0 +1,91 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%= link "New area notification", to: Routes.torch_area_notification_path(@conn, :new) %>
+  </div>
+</section>
+<section id="torch-index-content">
+  <div class="torch-container">
+    <section id="torch-filters">
+      <h3>Find area notifications</h3>
+      <%= form_tag @conn.request_path, method: :get, id: "torch-filters-form" do %>
+
+          <div class="field">
+            <label>ID</label>
+            <%= number_filter_select(:area_notification, :id, @conn.params) %>
+            <%= filter_number_input(:area_notification, :id, @conn.params) %>
+          </div>
+
+          <div class="field">
+            <label>Owner ID</label>
+            <%= filter_select(:area_notification, :owner_id, @conn.params) %>
+            <%= filter_string_input(:area_notification, :author, @conn.params) %>
+          </div>
+
+          <div class="field">
+            <label>Message</label>
+            <%= filter_select(:area_notification, :message, @conn.params) %>
+            <%= filter_string_input(:area_notification, :message, @conn.params) %>
+          </div>
+
+        <button type="submit" class="torch-button">Search</button>
+        <%= link "Clear Filters", to: Routes.torch_area_notification_path(@conn, :index) %>
+      <% end %>
+
+    </section>
+
+    <section id="torch-table">
+    <%= if length(@area_notifications) > 0 do %>
+      <table>
+        <thead>
+          <tr>
+
+              <th><%= table_link(@conn, "ID", :id) %></th>
+
+              <th><%= table_link(@conn, "Owner ID", :owner_id) %></th>
+
+              <th><%= table_link(@conn, "Location", :location) %></th>
+
+              <th><%= table_link(@conn, "Radius", :radius) %></th>
+
+              <th><%= table_link(@conn, "Times received", :receivers_count) %></th>
+
+              <th><%= table_link(@conn, "Created at", :inserted_at) %></th>
+
+              <th><%= table_link(@conn, "Expiration", :expires_at) %></th>
+
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= for notification <- @area_notifications do %>
+            <tr>
+
+                <td><%= link notification.id, to: Routes.torch_area_notification_path(@conn, :show, notification) %></td>
+
+                <td><%= notification.owner_id %></td>
+
+                <td><%= location(notification.location) %></td>
+
+                <td><%= float(notification.radius) %></td>
+
+                <td><%= notification.receivers_count %></td>
+
+                <td><%= notification.inserted_at %></td>
+
+                <td><%= notification.expires_at %></td>
+
+              <td class="torch-actions">
+                <span><%= link "Show", to: Routes.torch_area_notification_path(@conn, :show, notification) %></span>
+                <span><%= link "Delete", to: Routes.torch_area_notification_path(@conn, :delete, notification), method: :delete, data: [confirm: "Are you sure?"] %></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= render Torch.PaginationView, "_pagination.html", assigns %>
+    <% else %>
+      <p class="torch-no-data">No area notifications reasons match your search.</p>
+    <% end %>
+    </section>
+  </div>
+</section>

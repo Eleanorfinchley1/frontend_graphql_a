@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "accept": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "recv_timeout": 5000,
+        "connect_timeout": 5000
+      },
+      "request_body": "",
+      "url": "https://secure.meetup.com/oauth2/authorize?client_id=40p32itgad8gf924md0tt91gor&redirect_uri=https%3A%2F%2Fwww.billbored.com%2Foauth2%2Fredirect&response_type=anonymous_code"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"code\":\"798d0c47690dbad8e774e93fca14e805\"}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Server": "Apache-Coyote/1.1",
+        "P3P": "CP=\"CAO DSP LAW CUR DEVa TAIa PSAi PSDi OTPi OUR IND UNI NAV DEM STA LOC OTC\"",
+        "X-Meetup-server": "cd00c622e9f3",
+        "X-Frame-Options": "sameorigin",
+        "Strict-Transport-Security": "max-age=7776000",
+        "X-XSS-Protection": "1; mode=block",
+        "Pragma": "No-cache",
+        "Cache-Control": "no-store",
+        "Expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+        "Content-Language": "en-US",
+        "Set-Cookie": "MEETUP_MEMBER=\"id=0&status=1&timestamp=1580719403&bs=0&tz=US%2FEastern&zip=&country=us&city=&state=&lat=0.0&lon=0.0&ql=false&s=0e1e689b37e1c4fa285f7524a63272ebbb45ee90&scope=ALL\"; Version=1; Domain=.meetup.com; Path=/; Secure; HttpOnly",
+        "Content-Length": "43",
+        "Accept-Ranges": "bytes",
+        "Date": "Mon, 03 Feb 2020 08:43:23 GMT",
+        "Via": "1.1 varnish",
+        "Connection": "keep-alive",
+        "X-Served-By": "cache-hhn4057-HHN",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1580719404.665566,VS0,VE180",
+        "Vary": "User-Agent,Accept-Language"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

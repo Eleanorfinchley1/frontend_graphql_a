@@ -1,0 +1,29 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "X-Authy-API-Key": "CqsX0htwBRJsk7xoIR7l5MQRtI8LbxW0"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.authy.com/protected/json/phones/verification/start?code_length=4&country_code=38&locale=en&phone_number=9774759105&via=sms"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"carrier\":\"Tele2 Russia\",\"is_cellphone\":true,\"message\":\"Text message sent to +38 977-475-91-05.\",\"seconds_to_expire\":146,\"success\":true,\"uuid\":\"b2222260-c781-0137-d7cc-02cf221f7294\"}",
+      "headers": {
+        "Server": "nginx/1.14.0 (Ubuntu)",
+        "Date": "Wed, 02 Oct 2019 20:22:46 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "121",
+        "Connection": "keep-alive",
+        "Status": "200 OK",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

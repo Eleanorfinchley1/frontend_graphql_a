@@ -1,0 +1,15 @@
+_build/
+cover/
+deps/
+doc/
+test/
+tmp/
+priv/static/
+erl_crash.dump
+*.ez
+.gitignore
+Dockerfile
+README*
+test/
+docker-compose.yml
+.envrc

@@ -1,0 +1,5 @@
+<h2>Welcome to Dropchats!</h2>
+<p>
+    You have been granted an exclusive access to <strong>Dropchats</strong>. Please login with you username <i><%= "#{@person.role}"%></i>.
+    <br>
+</p>

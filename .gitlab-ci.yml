@@ -1,0 +1,109 @@
+image: semaphoreci/elixir:1.10
+
+stages:
+  - setup
+  - test
+  - deploy
+
+prepare:
+  stage: setup
+  cache:
+    key: elixir-deps
+    paths:
+      - _build
+      - deps
+  script:
+    - elixir -v
+    - mix local.rebar --force
+    - mix local.hex --force
+    - mix deps.get
+    - mix compile
+
+test:
+  stage: test
+  services:
+    - mdillon/postgis:11-alpine
+  variables:
+    MIX_ENV: test
+    DATABASE_URL: postgres://postgres:@mdillon__postgis/billbored_test
+  script:
+    # installs psql so that ecto can load sql dump from python app
+    - apt-get update --allow-releaseinfo-change && apt-get install -y postgresql-client
+    - mix local.rebar --force
+    - mix local.hex --force
+    - mix ecto.setup
+    - mix test
+  cache:
+    key: elixir-deps
+    paths:
+      - _build
+      - deps
+
+deploy:dev:
+  stage: deploy
+  variables:
+    MIX_ENV: prod
+  cache:
+    key: elixir-deps
+    paths:
+      - _build
+      - deps
+  script:
+    - mix local.rebar --force
+    - mix local.hex --force
+    - mix compile
+    - mix distillery.release --verbose --env=prod
+    - mkdir ~/.ssh
+    - touch ~/.ssh/dev
+    - echo "-----BEGIN OPENSSH PRIVATE KEY-----" >> ~/.ssh/dev
+    - echo $DEV_KEY >> ~/.ssh/dev
+    - echo "-----END OPENSSH PRIVATE KEY-----" >> ~/.ssh/dev
+    - chmod 600 ~/.ssh/dev
+    - ssh-keyscan $DEV_IP_ADDRESS >> ~/.ssh/known_hosts
+    - scp -i ~/.ssh/dev _build/prod/rel/billbored/releases/0.1.0/billbored.tar.gz $DEV_USER@$DEV_IP_ADDRESS:~/
+    - ssh -i ~/.ssh/dev -t $DEV_USER@$DEV_IP_ADDRESS "sudo tar -xzf billbored.tar.gz -C /opt/billbored"
+    - ssh -i ~/.ssh/dev -t $DEV_USER@$DEV_IP_ADDRESS "sudo chown -R billbored:billbored /opt/billbored"
+    - ssh -i ~/.ssh/dev -t $DEV_USER@$DEV_IP_ADDRESS "sudo systemctl restart billbored"
+  only:
+    - /^dev$/
+
+deploy:beta:
+  stage: deploy
+  variables:
+    MIX_ENV: prod
+  cache:
+    key: elixir-deps
+    paths:
+      - _build
+      - deps
+  script:
+    - mix local.rebar --force
+    - mix local.hex --force
+    - mix compile
+    - mix distillery.release --verbose --env=prod
+    - mkdir ~/.ssh
+    - touch ~/.ssh/dev
+    - echo "-----BEGIN OPENSSH PRIVATE KEY-----" >> ~/.ssh/dev
+    - echo $DEV_KEY >> ~/.ssh/dev
+    - echo "-----END OPENSSH PRIVATE KEY-----" >> ~/.ssh/dev
+    - chmod 600 ~/.ssh/dev
+    - ssh-keyscan $BETA_IP_ADDRESS >> ~/.ssh/known_hosts
+    - scp -i ~/.ssh/dev _build/prod/rel/billbored/releases/0.1.0/billbored.tar.gz $DEV_USER@$BETA_IP_ADDRESS:~/
+    - ssh -i ~/.ssh/dev -t $DEV_USER@$BETA_IP_ADDRESS "sudo tar -xzf billbored.tar.gz -C /opt/billbored"
+    - ssh -i ~/.ssh/dev -t $DEV_USER@$BETA_IP_ADDRESS "sudo chown -R billbored:billbored /opt/billbored"
+    - ssh -i ~/.ssh/dev -t $DEV_USER@$BETA_IP_ADDRESS "sudo systemctl restart billbored"
+  only:
+    - /^master$/
+
+deploy:cloudrunprod:
+  stage: deploy
+  image: google/cloud-sdk
+  services:
+    - docker:dind
+  script:
+    - echo $GCP_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_PROJECT_ID
+    - gcloud builds submit . --config=cloudbuild.yaml
+  only:
+    - /^cloudrunprod$/

@@ -1,0 +1,21 @@
+FROM elixir:1.11.4
+
+
+
+RUN apt-get update -y && apt-get install -y bash curl g++ git make python libgcc1 libstdc++6 erlang-dev nodejs npm postgresql-client inotify-tools
+
+RUN mix local.hex --force
+RUN mix local.rebar --force
+
+WORKDIR /app
+COPY . ./
+
+
+RUN mix deps.get
+RUN mix deps.compile
+# App Port
+
+EXPOSE 4000
+
+# Default Command
+CMD ["mix", "phx.server"]
